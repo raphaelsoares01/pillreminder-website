@@ -1,7 +1,3 @@
 export default function About() {
-    return (
-        <section id="about" className="min-h-screen">
-
-        </section>
-    );
+  return <section id="sobre" className="min-h-screen" />;
 }
