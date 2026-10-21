@@ -4,8 +4,10 @@ import About from "@/components/About";
 
 export default function Home() {
   return (
-    <main className="relative">
-
+    <main>
+      <Navbar />
+      <Hero />
+      <About />
     </main>
   );
 }
