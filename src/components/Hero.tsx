@@ -30,7 +30,7 @@ export default function Hero() {
             Projeto acadêmico · IoT
           </div>
 
-          <h1 className="text-[clamp(2.8rem,4.2vw,5.25rem)] font-bold leading-[1.04] tracking-[-0.055em] text-[#091943]">
+          <h1 className="text-[clamp(2.8rem,4.2vw,5.25rem)] font-bold leading-[1.04] tracking-[-0.055em] text-[var(--title)]">
             Tecnologia a favor
             <br />
             da sua{" "}
@@ -39,7 +39,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-[480px] break-words text-[18px] leading-[1.8] text-[#29467f]">
+          <p className="mt-6 max-w-[480px] break-words text-[18px] leading-[1.8] text-[var(--text)]">
             O PillReminder é um sistema de monitoramento de medicamentos que integra um dispositivo físico, um aplicativo e a nuvem para ajudar você a nunca mais esquecer de tomar sua medicação
           </p>
 

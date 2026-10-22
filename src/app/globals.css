@@ -3,9 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
   --primary: #0070f3;
   --secondary: #fcfcfc;
   --thirdary: #e4edfa;
+
+  --title: #091943;
+  --text: #29467f;
 }
 
 @theme inline {
@@ -29,4 +33,73 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes about-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-phone-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.about-content,
+.about-phone-entrance {
+  opacity: 0;
+}
+
+.about-content-visible {
+  animation: about-fade-in 700ms ease-out forwards;
+}
+
+.about-phone-entrance-visible {
+  animation: about-fade-in 700ms ease-out forwards;
+}
+
+.about-phone {
+  width: min(100%, 600px);
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.about-phone-floating {
+  animation: about-phone-float 4s ease-in-out 700ms infinite;
+}
+
+.about-phone:hover {
+  animation-play-state: paused;
+  transform: translateY(-8px) scale(1.04);
+  filter: drop-shadow(0 18px 20px rgb(9 25 67 / 0.15));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-content-visible,
+  .about-phone-entrance-visible,
+  .about-phone-floating {
+    animation: none;
+    opacity: 1;
+  }
+
+  .about-phone {
+    transition: none;
+  }
+
+  .about-phone:hover {
+    transform: none;
+    filter: none;
+  }
 }
