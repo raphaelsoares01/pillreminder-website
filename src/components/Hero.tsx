@@ -13,13 +13,16 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/background-hero-and-pillbox-and-transition.png')", backgroundPosition: "center 30%"}}
-    aria-label="Interior da barbearia"
+      className="hero-section relative min-h-screen bg-cover bg-no-repeat"
+      style={{
+        backgroundImage:
+          "url('/images/background-hero-and-pillbox-and-transition.png')",
+      }}
+      aria-label="Apresentação do PillReminder"
     >
-      <div className="mx-auto grid min-h-screen w-full max-w-[1600px] items-center pb-35">
+      <div className="mx-auto grid min-h-screen w-full max-w-[1600px] items-center px-5 pb-35 sm:px-8 lg:px-12">
         <div
-          className={`relative pt-20 z-10 w-full max-w-[660px] min-w-0 transition-all duration-700 ${
+          className={`relative z-10 w-full max-w-[660px] min-w-0 pt-20 transition-all duration-700 ${
             visible
               ? "translate-y-0 opacity-100"
               : "translate-y-4 opacity-0"

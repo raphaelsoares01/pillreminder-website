@@ -35,6 +35,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.hero-section {
+  background-position: 0% 30%;
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    background-position: 0% 30%;
+  }
+}
+
 @keyframes about-fade-in {
   from {
     opacity: 0;
