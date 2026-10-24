@@ -20,7 +20,7 @@ export default function Hero() {
       }}
       aria-label="Apresentação do PillReminder"
     >
-      <div className="mx-auto grid min-h-screen w-full max-w-[1600px] items-center px-5 pb-35 sm:px-8 lg:px-12">
+      <div className="mx-auto grid min-h-screen w-full max-w-[1600px] items-center px-5 pb-35 sm:px-8 md:translate-x-4 lg:translate-x-8 lg:px-12 xl:translate-x-12">
         <div
           className={`relative z-10 w-full max-w-[660px] min-w-0 pt-20 transition-all duration-700 ${
             visible
@@ -74,7 +74,7 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="flex flex-row items-center gap-6">
+        <div className="mt-10 flex flex-row items-center gap-6 sm:mt-12">
           {/*Lembretes Inteligentes*/}
           <div className="flex max-w-[100px] flex-col items-center justify-center gap-3 text-center text-[14px]">
             <div className="flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full bg-[var(--thirdary)]">

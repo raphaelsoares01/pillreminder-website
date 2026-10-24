@@ -36,12 +36,14 @@ body {
 }
 
 .hero-section {
-  background-position: 0% 30%;
+  background-position: -8% 30%;
+  background-size: auto 108%;
 }
 
 @media (max-width: 767px) {
   .hero-section {
-    background-position: 0% 30%;
+    background-position: -3% 30%;
+    background-size: cover;
   }
 }
 
