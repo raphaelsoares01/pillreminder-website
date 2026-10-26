@@ -30,7 +30,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="sobre" className="min-h-screen">
+    <section ref={sectionRef} id="sobre" className="min-h-screen overflow-x-clip">
       <div className="flex flex-col items-center justify-center gap-10 px-5 py-30 md:flex-row md:gap-16 md:px-8 lg:px-12">
         <div
           className={`about-content ${
@@ -52,12 +52,20 @@ export default function About() {
             isVisible ? "about-phone-entrance-visible" : ""
           }`}
         >
-          <div className={`about-phone ${isVisible ? "about-phone-floating" : ""}`}>
+          <div className="about-phone-stage">
             <img
-              src="/images/3d_alredy_linked_iphone_frame2.png"
-              alt="iPhone Frame"
-              className="h-auto w-full max-w-[600px] object-contain"
+              src="/images/background-iphone.png"
+              alt=""
+              aria-hidden="true"
+              className="about-phone-background"
             />
+            <div className={`about-phone ${isVisible ? "about-phone-floating" : ""}`}>
+              <img
+                src="/images/3d_alredy_linked_iphone_frame2.png"
+                alt="iPhone Frame"
+                className="h-auto w-full max-w-[600px] object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>

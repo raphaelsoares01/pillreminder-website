@@ -36,8 +36,9 @@ body {
 }
 
 .hero-section {
-  background-position: -8% 30%;
+  background-position: 0 30%;
   background-size: auto 108%;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 767px) {
@@ -83,8 +84,71 @@ body {
   animation: about-fade-in 700ms ease-out forwards;
 }
 
-.about-phone {
+.about-phone-stage {
+  position: relative;
   width: min(100%, 600px);
+  isolation: isolate;
+}
+
+.about-phone-background {
+  position: absolute;
+  z-index: -1;
+  bottom: -9%;
+  left: 32%;
+  width: max(180%, 600px);
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/*
+.about-phone-background {
+  position: absolute;
+  z-index: -1;
+  bottom: -9%;
+  left: 50%;
+  width: 180%;
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+@media (max-width: 400px) {
+  .about-phone-stage {
+    width: 100%;
+  }
+
+  .about-phone-background {
+    width: 220%;
+    left: 55%;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-phone-background {
+    left: 55%;
+    width: 180%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-phone-background {
+    left: 52%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-phone-background {
+    left: 50%;
+  }
+}
+*/
+
+.about-phone {
+  position: relative;
+  width: 100%;
   transition: transform 300ms ease, filter 300ms ease;
 }
 
