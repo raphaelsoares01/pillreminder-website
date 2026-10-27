@@ -162,6 +162,76 @@ body {
   filter: drop-shadow(0 18px 20px rgb(9 25 67 / 0.15));
 }
 
+.how-it-work-section {
+  --how-it-work-spacing: clamp(2rem, 4vw, 4rem);
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.how-it-work-content {
+  max-width: 860px;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.how-it-work-content-visible {
+  animation: about-fade-in 700ms ease-out forwards;
+}
+
+.how-it-work-stage {
+  position: relative;
+  display: flex;
+  width: min(100%, 1360px);
+  min-height: clamp(420px, 52vw, 700px);
+  margin-top: clamp(3rem, 7vw, 6.5rem);
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--how-it-work-spacing);
+  isolation: isolate;
+}
+
+.how-it-work-phone {
+  position: relative;
+  z-index: var(--phone-index);
+  width: clamp(150px, 19vw, 270px);
+  opacity: 0;
+  transform: translateY(38px);
+  transition:
+    opacity 650ms ease-out,
+    transform 650ms ease-out,
+    filter 300ms ease;
+}
+
+.how-it-work-phone:nth-child(2) {
+  margin-top: clamp(2.75rem, 5vw, 5rem);
+}
+
+.how-it-work-phone:nth-child(3) {
+  margin-top: clamp(5.5rem, 10vw, 10rem);
+}
+
+.how-it-work-phone:nth-child(4) {
+  margin-top: clamp(8.25rem, 15vw, 15rem);
+}
+
+.how-it-work-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 20px rgb(9 25 67 / 0.12));
+}
+
+.how-it-work-stage-visible .how-it-work-phone {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--phone-index) * 150ms);
+}
+
+.how-it-work-phone:hover {
+  z-index: 5;
+  filter: drop-shadow(0 18px 20px rgb(9 25 67 / 0.15));
+  transform: translateY(-8px) scale(1.02);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .about-content-visible,
   .about-phone-entrance-visible,
@@ -177,5 +247,53 @@ body {
   .about-phone:hover {
     transform: none;
     filter: none;
+  }
+
+  .how-it-work-content {
+    opacity: 1;
+    transform: none;
+  }
+
+  .how-it-work-content-visible {
+    animation: none;
+  }
+
+  .how-it-work-phone,
+  .how-it-work-stage-visible .how-it-work-phone {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .how-it-work-phone:hover {
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .how-it-work-section {
+    --how-it-work-spacing: clamp(0.5rem, 2.5vw, 1.5rem);
+  }
+
+  .how-it-work-stage {
+    width: 100%;
+    min-height: clamp(300px, 84vw, 500px);
+  }
+
+  .how-it-work-phone {
+    width: clamp(68px, 19vw, 145px);
+  }
+
+  .how-it-work-phone:nth-child(2) {
+    margin-top: clamp(1.5rem, 5vw, 2.75rem);
+  }
+
+  .how-it-work-phone:nth-child(3) {
+    margin-top: clamp(3rem, 10vw, 5.5rem);
+  }
+
+  .how-it-work-phone:nth-child(4) {
+    margin-top: clamp(4.5rem, 15vw, 8.25rem);
   }
 }
