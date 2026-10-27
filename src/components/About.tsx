@@ -31,20 +31,29 @@ export default function About() {
 
   return (
     <section ref={sectionRef} id="sobre" className="min-h-screen overflow-x-clip">
-      <div className="flex flex-col items-center justify-center gap-10 px-5 py-30 md:flex-row md:gap-16 md:px-8 lg:px-12">
+      <div className="mx-auto flex w-full max-w-[1500px] flex-col items-center justify-center gap-10 px-5 py-30 md:flex-row md:gap-12 md:px-8 lg:gap-16 lg:px-12">
         <div
-          className={`about-content ${
+          className={`about-content w-full min-w-0 flex-1 ${
             isVisible ? "about-content-visible" : ""
           }`}
         >
-          <h1 className="text-[clamp(2.8rem,4.2vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.055em] text-[var(--title)]">
-            O que é o <span className="text-[var(--primary)]">PillReminder</span>?
+          <div className="flex flex-row items-center gap-4 text-[13px] text-[var(--primary)] font-bold tracking-[0.1em] uppercase mb-3">
+            <div className="h-0.5 w-12 bg-[var(--primary)] rounded-full"></div>Sobre o projeto
+          </div>
+          <h1 className="text-[clamp(2.8rem,4.2vw,4.55rem)] font-bold leading-[1.04] tracking-[-0.055em] text-[var(--title)] leading-tight">
+            O que é o <br /><span className="text-[var(--primary)]">PillReminder</span>?
           </h1>
-          <p className="mt-6 max-w-[480px] break-words text-[18px] leading-[1.8] text-[var(--text)]">
+          <p className="mt-6 max-w-[550px] break-words text-[18px] leading-[1.8] text-[var(--text)]">
             O PillReminder é um projeto desenvolvido com o principal objetivo de auxiliar pessoas a manterem uma rotina de medicação adequada, evitando esquecimentos e garantindo que os medicamentos sejam tomados corretamente.
           </p>
-          <p className="mt-6 max-w-[480px] break-words text-[18px] leading-[1.8] text-[var(--text)]">
+          <p className="mt-6 max-w-[550px] break-words text-[18px] leading-[1.8] text-[var(--text)]">
             Consiste em um sistema que une um dispositivo físico inteligente, um aplicativo móvel e uma plataforma na nuvem, proporcionando uma experiência integrada e eficiente para os usuários.
+          </p>
+          <p className="mt-6 max-w-[550px] break-words text-[18px] leading-[1.8] text-[var(--text)]">
+            A proposta vai além de registrar horários. O projeto busca aproximar o planejamento da medicação de sua execução no dia a dia, reunindo em um único sistema os recursos necessários para acompanhar a rotina estabelecida. Dessa forma, a organização dos medicamentos deixa de depender exclusivamente da memória do usuário.
+          </p>
+          <p className="mt-6 max-w-[550px] break-words text-[18px] leading-[1.8] text-[var(--text)]">
+            A integração entre os componentes também é parte central da solução. O dispositivo físico representa a interação direta com os medicamentos, enquanto o aplicativo oferece uma interface para consultar informações e acompanhar os horários.
           </p>
         </div>
         <div

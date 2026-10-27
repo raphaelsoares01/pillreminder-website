@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const navigationItems = [
   { id: "home", label: "Início" },
   { id: "sobre", label: "Sobre" },
-  { id: "funcionamento", label: "Como funciona" },
+  { id: "como-funciona", label: "Como funciona" },
   { id: "recursos", label: "Recursos" },
   { id: "tecnologias", label: "Tecnologias" },
   { id: "contact", label: "Contato" },
