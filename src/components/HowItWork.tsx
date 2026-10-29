@@ -24,29 +24,48 @@ const phones = [
 
 export default function HowItWork() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isStageVisible, setIsStageVisible] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
+    const stage = stageRef.current;
 
-    if (!section || !("IntersectionObserver" in window)) {
-      setIsVisible(true);
+    if (!("IntersectionObserver" in window)) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18 },
-    );
+    const contentObserver = section
+      ? new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setIsContentVisible(true);
+              contentObserver.disconnect();
+            }
+          },
+          { threshold: 0.18 },
+        )
+      : null;
+    const stageObserver = stage
+      ? new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setIsStageVisible(true);
+              stageObserver.disconnect();
+            }
+          },
+          { threshold: 0.2 },
+        )
+      : null;
 
-    observer.observe(section);
+    contentObserver?.observe(section);
+    stageObserver?.observe(stage);
 
-    return () => observer.disconnect();
+    return () => {
+      contentObserver?.disconnect();
+      stageObserver?.disconnect();
+    };
   }, []);
 
   return (
@@ -58,7 +77,7 @@ export default function HowItWork() {
       <div className="mx-auto flex w-full max-w-[1500px] flex-col items-center px-5 py-30 md:px-8 lg:px-12">
         <div
           className={`how-it-work-content text-center ${
-            isVisible ? "how-it-work-content-visible" : ""
+            isContentVisible ? "how-it-work-content-visible" : ""
           }`}
         >
           <div className="mb-3 flex items-center justify-center gap-4 text-[13px] font-bold uppercase tracking-[0.1em] text-[var(--primary)]">
@@ -67,8 +86,8 @@ export default function HowItWork() {
             <div className="h-0.5 w-12 rounded-full bg-[var(--primary)]" />
           </div>
           <h2 className="text-[clamp(2.5rem,4.2vw,4.55rem)] font-bold leading-[1.04] tracking-[-0.055em] text-[var(--title)]">
-            Do primeiro acesso ao{" "}
-            <span className="text-[var(--primary)]">seu cuidado</span>
+            Como dar inícios ao {" "}
+            <span className="text-[var(--primary)]">seus cuidados </span>
           </h2>
           <p className="mx-auto mt-6 max-w-[620px] text-[18px] leading-[1.8] text-[var(--text)]">
             Acompanhe cada etapa da experiência do PillReminder pelo aplicativo,
@@ -77,7 +96,8 @@ export default function HowItWork() {
         </div>
 
         <div
-          className={`how-it-work-stage ${isVisible ? "how-it-work-stage-visible" : ""}`}
+          ref={stageRef}
+          className={`how-it-work-stage ${isStageVisible ? "how-it-work-stage-visible" : ""}`}
           aria-label="Etapas do aplicativo PillReminder"
         >
           {phones.map((phone, index) => (

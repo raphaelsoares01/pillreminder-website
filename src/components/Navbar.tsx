@@ -87,7 +87,7 @@ export default function Navbar() {
           : "border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8 lg:px-12">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-1 md:px-8 lg:px-12">
         {/* Logo */}
         <a
           href="#home"
@@ -96,9 +96,9 @@ export default function Navbar() {
           className="shrink-0"
         >
           <img
-            src="/images/logo.png"
+            src="/images/new-logo-pillreminder.png"
             alt="PillReminder"
-            className="h-10 w-auto object-contain"
+            className="h-17 w-auto object-contain"
           />
         </a>
 
@@ -115,7 +115,7 @@ export default function Navbar() {
                   scrollToSection(event, item.id)
                 }
                 aria-current={isActive ? "location" : undefined}
-                className={`relative whitespace-nowrap py-2 text-[13px] font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:rounded-full after:bg-blue-600 after:transition-transform after:duration-300 ${
+                className={`relative whitespace-nowrap py-2 text-[15px] font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:rounded-full after:bg-blue-600 after:transition-transform after:duration-300 ${
                   isActive
                     ? "text-blue-600 after:scale-x-100"
                     : "text-[#172b59] after:scale-x-0 hover:text-blue-600 hover:after:scale-x-100"
