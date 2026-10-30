@@ -172,7 +172,9 @@ body {
 }
 
 .how-it-work-content {
-  max-width: 860px;
+  width: 100%;
+  max-width: 1100px;
+  max-width: none;
   opacity: 0;
   transform: translateY(24px);
 }

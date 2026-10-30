@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main>
       {!introFinished && (
-        <Join onComplete={() => setIntroFinished(true)} />
+        <Join onComplete={() => setIntroFinished(true)} /> /*Ajustar fonte*/
       )}
 
       <Navbar />
