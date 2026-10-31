@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 
+import Join from "@/components/Join";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import HowItWork from "@/components/HowItWork";
-import Join from "@/components/Join";
+import Technology from "@/components/Technology";
 
 export default function Home() {
   const [introFinished, setIntroFinished] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
       <Hero />
       <About />
       <HowItWork />
+      <Technology />
     </main>
   );
 }
