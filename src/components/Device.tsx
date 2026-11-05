@@ -19,7 +19,7 @@ export default function Device() {
   return (
     <section
       id="dispositivo"
-      className="overflow-x-clip bg-[#f7faff] py-24 sm:py-28 lg:py-36"
+      className="overflow-x-clip bg-[#f7faff] pb-24 pt-12 sm:py-28 lg:py-36"
     >
       <div className="mx-auto grid w-full max-w-[1500px] items-center gap-12 px-5 sm:px-8 md:grid-cols-[0.85fr_1.15fr] md:gap-8 lg:gap-20 lg:px-12">
         <div className="order-2 md:order-1">
@@ -28,19 +28,22 @@ export default function Device() {
             O dispositivo
           </div>
           <h2 className="max-w-[620px] text-[clamp(2.5rem,4.2vw,4.55rem)] font-bold leading-[1.04] tracking-[-0.055em] text-[var(--title)]">
-            Tecnologia que acompanha{" "}
-            <span className="text-[var(--primary)]">sua rotina.</span>
+            Conheça o nosso {" "}
+            <span className="text-[var(--primary)]">dispositivo físico.</span>
           </h2>
           <p className="mt-6 max-w-[560px] text-[18px] leading-[1.8] text-[var(--text)]">
             Conheça o dispositivo físico do PillReminder em todos os detalhes.
             Arraste para girar o modelo e use o zoom para explorar cada parte.
+          </p>
+          <p className="mt-6 max-w-[560px] text-[18px] leading-[1.8] text-[var(--text)]">
+            Essa versão do dispositivo permite que o usuário utilize o PillReminder a qualquer distância, sem a necessidade de estar próximo do smartphone. Ele é portátil, fácil de usar e possui alertas visuais e sonoros para lembrar o usuário de tomar seus medicamentos.
           </p>
 
           <div className="mt-8 grid max-w-[560px] gap-3 sm:grid-cols-3">
             {[
               ["01", "Alertas visuais e sonoros"],
               ["02", "Conexão com o aplicativo"],
-              ["03", "Design compacto"],
+              ["03", "Portátil e fácil de usar"],
             ].map(([number, label]) => (
               <div
                 key={number}

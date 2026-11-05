@@ -78,7 +78,7 @@ export default function HowItWork() {
       id="como-funciona"
       className="how-it-work-section overflow-x-clip"
     >
-      <div className="mx-auto flex w-full max-w-[1700px] flex-col items-center px-4 py-24 sm:px-6 md:px-8 lg:px-12">
+      <div className="mx-auto flex w-full max-w-[1700px] flex-col items-center px-4 pb-12 pt-24 sm:px-6 sm:py-24 md:px-8 lg:px-12">
 
         {/* Título e descrição */}
         <div
