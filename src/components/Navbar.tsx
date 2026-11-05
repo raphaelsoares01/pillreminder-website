@@ -128,37 +128,39 @@ export default function Navbar() {
           })}
         </div>
 
-        <button
-          type="button"
-          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-blue-100 bg-white text-[#172b59] shadow-sm lg:hidden"
-        >
-          <span className="sr-only">
-            {isMenuOpen ? "Fechar menu" : "Abrir menu"}
-          </span>
-          <span className="flex flex-col gap-1">
-            <span className="h-0.5 w-5 bg-current" />
-            <span className="h-0.5 w-5 bg-current" />
-            <span className="h-0.5 w-5 bg-current" />
-          </span>
-        </button>
-
-        {/* GitHub */}
-        <a
-          href={GITHUB_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-700 to-blue-500 px-3 py-2.5 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/25 active:translate-y-0 sm:px-6 sm:py-3 sm:text-[13px]"
-        >
-          <img 
-            src="/images/github-icon.png" 
-            alt="Play" 
-            className="h-[22px] w-[22px] brightness-0 invert" 
+        <div className="flex shrink-0 items-center gap-2">
+          {/* GitHub */}
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-700 to-blue-500 px-3 py-2.5 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/25 active:translate-y-0 sm:px-6 sm:py-3 sm:text-[13px]"
+          >
+            <img
+              src="/images/github-icon.png"
+              alt="Play"
+              className="h-[22px] w-[22px] brightness-0 invert"
             />
-          <span className="hidden sm:inline">Ver no GitHub</span>
-        </a>
+            <span className="hidden sm:inline">Ver no GitHub</span>
+          </a>
+
+          <button
+            type="button"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-blue-100 bg-white text-[#172b59] shadow-sm lg:hidden"
+          >
+            <span className="sr-only">
+              {isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            </span>
+            <span className="flex flex-col gap-1">
+              <span className="h-0.5 w-5 bg-current" />
+              <span className="h-0.5 w-5 bg-current" />
+              <span className="h-0.5 w-5 bg-current" />
+            </span>
+          </button>
+        </div>
 
         {isMenuOpen && (
           <div className="absolute left-4 right-4 top-full mt-2 rounded-2xl border border-blue-100 bg-white p-3 shadow-lg lg:hidden">

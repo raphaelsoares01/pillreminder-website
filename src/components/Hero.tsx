@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="hero-section relative min-h-screen bg-cover bg-no-repeat"
+      className="hero-section relative min-h-screen overflow-x-clip bg-cover bg-no-repeat"
       style={{
         backgroundImage:
           "url('/images/background-hero-and-pillbox-and-transition.png')",

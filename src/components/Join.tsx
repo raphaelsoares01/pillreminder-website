@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 interface JoinProps {
@@ -19,7 +19,7 @@ export default function Join({ onComplete }: JoinProps) {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const overlay = overlayRef.current;
     const stage = stageRef.current;
     const pill = pillRef.current;
@@ -163,6 +163,7 @@ export default function Join({ onComplete }: JoinProps) {
       <div ref={stageRef} className="relative flex h-40 items-center">
         <h1
           ref={nameRef}
+          style={{ clipPath: "inset(0 0 0 100%)" }}
           className="absolute left-0 whitespace-nowrap pl-[clamp(68px,16vw,170px)] text-[clamp(1.75rem,10vw,9rem)] font-extrabold leading-none tracking-tight text-[#102D69]"
         >
           PillReminder
