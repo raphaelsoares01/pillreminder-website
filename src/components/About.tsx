@@ -30,8 +30,8 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="sobre" className="min-h-screen overflow-x-clip">
-      <div className="mx-auto flex w-full max-w-[1500px] flex-col items-center justify-center gap-10 px-5 py-30 md:flex-row md:gap-12 md:px-8 lg:gap-16 lg:px-12">
+    <section ref={sectionRef} id="sobre" className="overflow-x-clip md:min-h-screen">
+      <div className="mx-auto flex w-full max-w-[1500px] flex-col items-center justify-center gap-8 px-5 py-16 md:flex-row md:gap-12 md:px-8 md:py-30 lg:gap-16 lg:px-12">
         <div
           className={`about-content w-full min-w-0 flex-1 ${
             isVisible ? "about-content-visible" : ""

@@ -15,6 +15,7 @@ const GITHUB_URL = "https://github.com/raphaelsoares01/pillreminder";
 export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (
     event: React.MouseEvent<HTMLAnchorElement>,
@@ -31,6 +32,7 @@ export default function Navbar() {
     });
 
     window.history.pushState(null, "", `#${id}`);
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -83,10 +85,10 @@ export default function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         hasScrolled
           ? "border-blue-100/70 bg-white/85 shadow-sm backdrop-blur-xl"
-          : "border-transparent bg-transparent"
+          : "border-transparent bg-white/80 backdrop-blur-xl lg:bg-transparent lg:backdrop-blur-none"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-1 md:px-8 lg:px-12">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-1 sm:gap-6 sm:px-5 md:px-8 lg:px-12">
         {/* Logo */}
         <a
           href="#home"
@@ -97,7 +99,7 @@ export default function Navbar() {
           <img
             src="/images/new-logo-pillreminder.png"
             alt="PillReminder"
-            className="h-17 w-auto object-contain"
+            className="h-12 w-auto object-contain sm:h-17"
           />
         </a>
 
@@ -126,20 +128,63 @@ export default function Navbar() {
           })}
         </div>
 
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-blue-100 bg-white text-[#172b59] shadow-sm lg:hidden"
+        >
+          <span className="sr-only">
+            {isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          </span>
+          <span className="flex flex-col gap-1">
+            <span className="h-0.5 w-5 bg-current" />
+            <span className="h-0.5 w-5 bg-current" />
+            <span className="h-0.5 w-5 bg-current" />
+          </span>
+        </button>
+
         {/* GitHub */}
         <a
           href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-700 to-blue-500 px-5 py-3 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/25 active:translate-y-0 sm:px-6 sm:text-[13px]"
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-700 to-blue-500 px-3 py-2.5 text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-500/25 active:translate-y-0 sm:px-6 sm:py-3 sm:text-[13px]"
         >
           <img 
             src="/images/github-icon.png" 
             alt="Play" 
             className="h-[22px] w-[22px] brightness-0 invert" 
             />
-          <span>Ver no GitHub</span>
+          <span className="hidden sm:inline">Ver no GitHub</span>
         </a>
+
+        {isMenuOpen && (
+          <div className="absolute left-4 right-4 top-full mt-2 rounded-2xl border border-blue-100 bg-white p-3 shadow-lg lg:hidden">
+            <div className="flex flex-col gap-1">
+              {navigationItems.map((item) => {
+                const isActive = activeSection === item.id;
+
+                return (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={(event) => scrollToSection(event, item.id)}
+                    aria-current={isActive ? "location" : undefined}
+                    className={`rounded-xl px-4 py-3 text-sm font-semibold ${
+                      isActive
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-[#172b59] hover:bg-blue-50 hover:text-blue-600"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

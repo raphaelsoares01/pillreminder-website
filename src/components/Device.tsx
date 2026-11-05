@@ -19,10 +19,10 @@ export default function Device() {
   return (
     <section
       id="dispositivo"
-      className="overflow-x-clip bg-[#f7faff] pb-24 pt-12 sm:py-28 lg:py-36"
+      className="overflow-x-clip bg-[#f7faff] pb-16 pt-8 sm:py-28 lg:py-36"
     >
       <div className="mx-auto grid w-full max-w-[1500px] items-center gap-12 px-5 sm:px-8 md:grid-cols-[0.85fr_1.15fr] md:gap-8 lg:gap-20 lg:px-12">
-        <div className="order-2 md:order-1">
+        <div className="order-1 md:order-1">
           <div className="mb-3 flex items-center gap-4 text-[13px] font-bold uppercase tracking-[0.1em] text-[var(--primary)]">
             <div className="h-0.5 w-12 rounded-full bg-[var(--primary)]" />
             O dispositivo
@@ -60,7 +60,7 @@ export default function Device() {
           </div>
         </div>
 
-        <div className="order-1 min-w-0 md:order-2">
+        <div className="order-2 min-w-0 md:order-2">
           <div className="relative mx-auto flex min-h-[360px] w-full max-w-[700px] items-center justify-center overflow-hidden rounded-[2rem] border border-blue-100 bg-white px-3 py-8 shadow-[0_24px_70px_rgba(27,83,180,0.12)] sm:min-h-[470px] sm:px-8">
             <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-100/60 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-20 h-56 w-56 rounded-full bg-cyan-100/60 blur-3xl" />

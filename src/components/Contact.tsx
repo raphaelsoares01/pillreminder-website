@@ -50,7 +50,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className={`overflow-x-clip bg-white px-5 py-24 sm:px-8 sm:py-28 lg:px-12 lg:py-36 ${
+      className={`overflow-x-clip bg-white px-5 py-16 sm:px-8 sm:py-28 lg:px-12 lg:py-36 ${
         isVisible ? "contact-section-visible" : "contact-section"
       }`}
     >

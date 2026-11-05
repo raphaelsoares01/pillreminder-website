@@ -10,6 +10,7 @@ interface JoinProps {
 
 export default function Join({ onComplete }: JoinProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const pillRef = useRef<HTMLImageElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const onCompleteRef = useRef(onComplete);
@@ -20,19 +21,25 @@ export default function Join({ onComplete }: JoinProps) {
 
   useEffect(() => {
     const overlay = overlayRef.current;
+    const stage = stageRef.current;
     const pill = pillRef.current;
     const name = nameRef.current;
 
-    if (!overlay || !pill || !name) return;
+    if (!overlay || !stage || !pill || !name) return;
 
     const ctx = gsap.context(() => {
       const textWidth = name.scrollWidth;
-      const startX = textWidth;
+      const pillWidth = Math.min(160, Math.max(68, window.innerWidth * 0.15));
+      const startX = Math.max(0, textWidth - pillWidth);
       const revealDelay = 0.2;
       const travelDuration = 1.35;
 
       const pillMovement = { progress: 0 };
       const textReveal = { progress: 0 };
+
+      gsap.set(stage, {
+        width: textWidth,
+      });
 
       gsap.set(name, {
         clipPath: `inset(0 0 0 ${textWidth + 2}px)`,
@@ -153,10 +160,10 @@ export default function Join({ onComplete }: JoinProps) {
       ref={overlayRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-white"
     >
-      <div className="relative flex h-40 w-[min(96vw,900px)] items-center">
+      <div ref={stageRef} className="relative flex h-40 items-center">
         <h1
           ref={nameRef}
-          className="absolute left-0 whitespace-nowrap pl-[clamp(100px,16vw,170px)] text-5xl font-extrabold tracking-tight text-[#102D69] sm:text-7xl md:text-8xl lg:text-9xl"
+          className="absolute left-0 whitespace-nowrap pl-[clamp(68px,16vw,170px)] text-[clamp(1.75rem,10vw,9rem)] font-extrabold leading-none tracking-tight text-[#102D69]"
         >
           PillReminder
         </h1>
@@ -165,7 +172,7 @@ export default function Join({ onComplete }: JoinProps) {
           ref={pillRef}
           src="/images/only-pill-new-logo.png"
           alt=""
-          className="absolute left-0 z-10 w-[clamp(96px,15vw,160px)]"
+          className="absolute left-0 z-10 w-[clamp(68px,15vw,160px)]"
         />
       </div>
     </div>
