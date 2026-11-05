@@ -43,8 +43,15 @@ body {
 
 @media (max-width: 767px) {
   .hero-section {
-    background-position: -3% 30%;
-    background-size: cover;
+    background-position: left top;
+    background-size: auto 125%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    background-position: left top;
+    background-size: auto 135%;
   }
 }
 
@@ -183,6 +190,39 @@ body {
   animation: about-fade-in 700ms ease-out forwards;
 }
 
+.contact-section {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.contact-section-visible {
+  animation: about-fade-in 700ms ease-out forwards;
+}
+
+.contact-input {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid #cfe0fb;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  padding: 0.85rem 1rem;
+  color: var(--title);
+  font-size: 0.95rem;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.contact-input::placeholder {
+  color: #7890b8;
+}
+
+.contact-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgb(0 112 243 / 0.12);
+}
+
 .how-it-work-stage {
   position: relative;
   display: flex;
@@ -266,5 +306,12 @@ body {
   .how-it-work-phone:hover img {
     transform: none;
     filter: none;
+  }
+
+  .contact-section,
+  .contact-section-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

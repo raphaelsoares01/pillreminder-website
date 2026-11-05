@@ -7,7 +7,8 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import HowItWork from "@/components/HowItWork";
-import Technology from "@/components/Technology";
+import Device from "@/components/Device";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   const [introFinished, setIntroFinished] = useState(false);
@@ -22,7 +23,8 @@ export default function Home() {
       <Hero />
       <About />
       <HowItWork />
-      <Technology />
+      <Device />
+      <Contact />
     </main>
   );
 }

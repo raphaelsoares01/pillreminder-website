@@ -6,8 +6,7 @@ const navigationItems = [
   { id: "home", label: "Início" },
   { id: "sobre", label: "Sobre" },
   { id: "como-funciona", label: "Como funciona" },
-  { id: "tecnologias", label: "Tecnologias" },
-  { id: "recursos", label: "Recursos" },
+  { id: "dispositivo", label: "Dispositivo" },
   { id: "contact", label: "Contato" },
 ];
 
